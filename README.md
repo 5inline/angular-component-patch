@@ -62,6 +62,7 @@ There is a flux component available that integrates directly with [Flux Angular]
 ### Installation
 ```
 <script src="[path]/angular.js"></script>
+<script src="[path]/bower_components/flux-angular/release/flux-angular.js"></script>
 <script src="[path]/bower_components/angular-component-patch/dist/flux-component-patch.js"></script>
 ```
 
