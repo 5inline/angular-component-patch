@@ -83,3 +83,9 @@ function myFluxController (flux, myStore)
   }
 }
 ```
+
+#### Credits
+This was inspired by a few people/articles.
+* [Christian Alfoni](https://github.com/christianalfoni)
+* [egghead.io](http://blog.ninja-squad.com/2014/12/15/what-is-coming-in-angularjs-1.4/)
+* [airpair.com](https://www.airpair.com/angularjs/posts/component-based-angularjs-directives)
