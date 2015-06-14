@@ -1,6 +1,6 @@
 {
   "name": "angular-component-patch",
-  "version": "1.00",
+  "version": "1.0.0",
   "main": [
     "dist/component-patch.js",
     "dist/flux-component-patch.js"
