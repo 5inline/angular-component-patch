@@ -1,9 +1,24 @@
 {
   "name": "angular-component-patch",
-  "version": "1.0.1",
-  "main": [
-    "dist/component-patch.js",
-    "dist/flux-component-patch.js"
+  "description": "Monkey patch to add component-style architecture to AngularJS",
+  "version": "1.0.2",
+  "authors": [
+    "5 Inline (http://5inline.com)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/5inline/angular-component-patch.git"
+  },
+  "homepage": "https://github.com/5inline/angular-component-patch",
+  "license": "MIT",
+  "main": "dist/component-patch.js",
+  "ignore": [
+    "**/.*",
+    ".gitignore",
+    "gruntfile.js",
+    "package.json",
+    "releases",
+    "src"
   ],
   "dependencies": {
     "angular": "1.3 - 1.4"
