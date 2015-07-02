@@ -1,6 +1,6 @@
 /**
  * Component monkey patch for Angular 1.3+
- * @version  1.0.2
+ * @version  1.0.3
  * {@link  https://github.com/5inline/angular-component-patch}
  * @license  MIT License 
  */
@@ -42,6 +42,7 @@ angular.module = function ()
 			{
 				$scope.$on('$destroy', function ()
 				{
+					if( !controller.storeExport ) return;
 					var store = flux.getStore(controller.storeExport);
 					var removeMethod = controller.eventName === '*' ? 'offAny' : 'off';
 					var args = controller.eventName === '*' ? [controller.callback] : [controller.eventName, controller.callback];

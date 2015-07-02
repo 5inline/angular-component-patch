@@ -42,6 +42,7 @@ angular.module = function ()
 			{
 				$scope.$on('$destroy', function ()
 				{
+					if( !controller.storeExport ) return;
 					var store = flux.getStore(controller.storeExport);
 					var removeMethod = controller.eventName === '*' ? 'offAny' : 'off';
 					var args = controller.eventName === '*' ? [controller.callback] : [controller.eventName, controller.callback];
