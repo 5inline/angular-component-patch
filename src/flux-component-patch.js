@@ -33,22 +33,22 @@ angular.module = function ()
 				var args = eventName === '*' ? [callback] : [eventName, callback];
 				store[addMethod].apply(store, args);
 
-				this.storeExport = storeExport;
-				this.eventName = eventName;
-				this.callback = callback;
-				if( !this.events ) {
-					this.events = [];
+				this._storeExport = storeExport;
+				this._eventName = eventName;
+				this._callback = callback;
+				if( !this._events ) {
+					this._events = [];
 				}
-				this.events.push({eventName:eventName,callback:callback});
+				this._events.push({eventName:eventName,callback:callback});
 			}
 
 			function defaultLink ($scope, $elem, $attr, controller)
 			{
 				$scope.$on('$destroy', function ()
 				{
-					if( !controller.storeExport ) return;
-					var store = flux.getStore(controller.storeExport);
-					controller.events.forEach( function (event)
+					if( !controller._storeExport ) return;
+					var store = flux.getStore(controller._storeExport);
+					controller._events.forEach( function (event)
 					{
 						var removeMethod = event.eventName === '*' ? 'offAny' : 'off';
 						var args = event.eventName === '*' ? [event.callback] : [event.eventName, event.callback];

@@ -1,7 +1,7 @@
 {
   "name": "angular-component-patch",
   "description": "Monkey patch to add component-style architecture to AngularJS",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "authors": [
     "5 Inline (http://5inline.com)"
   ],
