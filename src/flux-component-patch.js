@@ -62,7 +62,10 @@ angular.module = function ()
 				compile: opts.compile,
 				controller: controller || function(){},
 				controllerAs:  opts.controllerAs || name,
-				link: opts.link || defaultLink,
+				link: {
+					pre: defaultLink,
+					post: opts.link || null 
+				},
 				priority: opts.priority,
 				restrict: opts.restrict || 'EA',
 				replace: opts.replace || true,

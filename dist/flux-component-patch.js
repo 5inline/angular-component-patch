@@ -1,6 +1,6 @@
 /**
  * Component monkey patch for Angular 1.3+
- * @version  1.0.5
+ * @version  1.0.6
  * {@link  https://github.com/5inline/angular-component-patch}
  * @license  MIT License 
  */
@@ -62,7 +62,10 @@ angular.module = function ()
 				compile: opts.compile,
 				controller: controller || function(){},
 				controllerAs:  opts.controllerAs || name,
-				link: opts.link || defaultLink,
+				link: {
+					pre: defaultLink,
+					post: opts.link || null 
+				},
 				priority: opts.priority,
 				restrict: opts.restrict || 'EA',
 				replace: opts.replace || true,
