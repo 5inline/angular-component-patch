@@ -52,6 +52,7 @@ angular.module = function ()
 					{
 						var removeMethod = event.eventName === '*' ? 'offAny' : 'off';
 						var args = event.eventName === '*' ? [event.callback] : [event.eventName, event.callback];
+						store.emit( [event.eventName,'$destroyed'].join(':') );
 						store[removeMethod].apply(store, args);
 					});
 				});

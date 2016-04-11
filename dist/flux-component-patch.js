@@ -1,6 +1,6 @@
 /**
  * Component monkey patch for Angular 1.3+
- * @version  1.0.6
+ * @version  1.0.7
  * {@link  https://github.com/5inline/angular-component-patch}
  * @license  MIT License 
  */
@@ -52,6 +52,7 @@ angular.module = function ()
 					{
 						var removeMethod = event.eventName === '*' ? 'offAny' : 'off';
 						var args = event.eventName === '*' ? [event.callback] : [event.eventName, event.callback];
+						store.emit( [event.eventName,'$destroyed'].join(':') );
 						store[removeMethod].apply(store, args);
 					});
 				});
