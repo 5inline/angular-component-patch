@@ -47,6 +47,7 @@ angular.module = function ()
 				$scope.$on('$destroy', function ()
 				{
 					if( !controller._storeExport ) return;
+					if( controller.onDestroy ) controller.onDestroy();
 					var store = flux.getStore(controller._storeExport);
 					controller._events.forEach( function (event)
 					{

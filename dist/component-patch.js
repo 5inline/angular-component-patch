@@ -1,6 +1,6 @@
 /**
  * Component monkey patch for Angular 1.3+
- * @version  1.0.7
+ * @version  1.0.8
  * {@link  https://github.com/5inline/angular-component-patch}
  * @license  MIT License 
  */
