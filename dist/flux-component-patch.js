@@ -1,6 +1,6 @@
 /**
  * Component monkey patch for Angular 1.3+
- * @version  1.0.8
+ * @version  1.0.9
  * {@link  https://github.com/5inline/angular-component-patch}
  * @license  MIT License 
  */
@@ -40,6 +40,20 @@ angular.module = function ()
 					this._events = [];
 				}
 				this._events.push({eventName:eventName,callback:callback});
+			}
+
+			controller.prototype.listenEnd = function (storeExport, eventName, callback)
+			{
+				if( !callback ) {
+					callback = eventName;
+					eventName = '*';
+				}
+
+				if( !controller._storeExport ) return;
+				var store = flux.getStore(controller._storeExport );
+				var removeMethod = event.eventName === '*' ? 'offAny' : 'off';
+				var args = event.eventName === '*' ? [event.callback] : [event.eventName, event.callback];
+				store[removeMethod].apply(store, args);
 			}
 
 			function defaultLink ($scope, $elem, $attr, controller)

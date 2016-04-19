@@ -42,6 +42,20 @@ angular.module = function ()
 				this._events.push({eventName:eventName,callback:callback});
 			}
 
+			controller.prototype.listenEnd = function (storeExport, eventName, callback)
+			{
+				if( !callback ) {
+					callback = eventName;
+					eventName = '*';
+				}
+
+				if( !controller._storeExport ) return;
+				var store = flux.getStore(controller._storeExport );
+				var removeMethod = event.eventName === '*' ? 'offAny' : 'off';
+				var args = event.eventName === '*' ? [event.callback] : [event.eventName, event.callback];
+				store[removeMethod].apply(store, args);
+			}
+
 			function defaultLink ($scope, $elem, $attr, controller)
 			{
 				$scope.$on('$destroy', function ()
